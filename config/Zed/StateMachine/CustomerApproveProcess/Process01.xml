@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<statemachine
+    xmlns="spryker:state-machine-01"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="spryker:state-machine-01 http://static.spryker.com/state-machine-01.xsd">
+
+    <process name="Process01" main="true">
+
+        <states>
+            <state name="new" />
+            <state name="waiting for approve" />
+            <state name="approved" />
+            <state name="declined" />
+            <state name="closed" />
+        </states>
+
+        <events>
+            <event name="ask for approve" onEnter="true" command="CustomerApproveProcess/CustomerApproveProcessCommand" />
+            <event name="approve" manual="true" command="CustomerApproveProcess/CustomerApproveProcessCommand" />
+            <event name="decline" manual="true" command="CustomerApproveProcess/CustomerApproveProcessCommand" />
+            <event name="close" manual="true" command="CustomerApproveProcess/CustomerApproveProcessCommand" />
+        </events>
+
+        <transitions>
+            <transition happy="true">
+                <source>new</source>
+                <target>waiting for approve</target>
+                <event>ask for approve</event>
+            </transition>
+
+            <transition happy="true" condition="CustomerApproveProcess/CustomerApproveProcessCondition">
+                <source>waiting for approve</source>
+                <target>approved</target>
+                <event>approve</event>
+            </transition>
+
+            <transition>
+                <source>waiting for approve</source>
+                <target>declined</target>
+                <event>decline</event>
+            </transition>
+
+            <transition happy="true">
+                <source>approved</source>
+                <target>closed</target>
+                <event>close</event>
+            </transition>
+
+            <transition>
+                <source>declined</source>
+                <target>closed</target>
+                <event>close</event>
+            </transition>
+
+        </transitions>
+
+    </process>
+
+</statemachine>
