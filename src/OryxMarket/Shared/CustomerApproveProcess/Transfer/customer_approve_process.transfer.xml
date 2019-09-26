@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<transfers xmlns="spryker:transfer-01"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
+
+    <transfer name="CustomerApproveProcessItem">
+        <property name="idCustomerApproveProcessItem" type="int"/>
+        <property name="idCustomer" type="int"/>
+        <property name="customerName" type="string"/>
+        <property name="customerEmail" type="string"/>
+        <property name="stateMachineItem" type="StateMachineItem"/>
+        <property name="stateHistory" type="StateMachineItem[]"/>
+    </transfer>
+
+</transfers>
