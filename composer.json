@@ -1,0 +1,35 @@
+{
+  "name": "oryx-market/customer-approve-process",
+  "description": "Implementation of customer approve process based on state machine",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1",
+    "spryker/kernel": "^3.0.0",
+    "spryker/state-machine": "^2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "OryxMarket\\": "src/OryxMarket/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OryxMarketTest\\": "tests/OryxMarketTest/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "process-timeout": 600
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  },
+  "require-dev": {
+    "spryker/testify": "*"
+  }
+}
